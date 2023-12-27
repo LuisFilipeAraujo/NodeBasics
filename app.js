@@ -4,7 +4,8 @@ function executaSegundo(){
     return new Promise((resolve, reject) => {
         setTimeout(function(){ //está se dividindo em Threads
             console.log("SEGUNDO");
-        },1500);
+            resolve();
+        },10000);
     });
 }
 
