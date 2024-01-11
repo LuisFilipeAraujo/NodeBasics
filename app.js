@@ -26,6 +26,9 @@ function executaTerceiro(){
     });
 }
 
-executaPrimeiro();
-executaSegundo();
-executaTerceiro();
+executaPrimeiro()
+    .then(()=> executaSegundo())
+    .then(()=> executaTerceiro());
+
+//executaSegundo();
+//executaTerceiro();
