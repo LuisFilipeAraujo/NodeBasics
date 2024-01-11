@@ -1,14 +1,31 @@
  //queremos que o terceiro apenas seja executado se o segundo for executado primeiro, por isso a Promisse
+ function executaPrimeiro(){
+    return new Promise((resolve, reject) => {
+        setTimeout(function(){ //está se dividindo em Threads
+            console.log("PRIMEIRO");
+            resolve();
+        },1000);
+    });
+}
 
 function executaSegundo(){
     return new Promise((resolve, reject) => {
         setTimeout(function(){ //está se dividindo em Threads
             console.log("SEGUNDO");
             resolve();
-        },10000);
+        },3000);
     });
 }
 
-console.log("PRIMEIRO");
-executaSegundo(); //chamdo a function
-console.log("TERCEIRO");
+function executaTerceiro(){
+    return new Promise((resolve, reject) => {
+        setTimeout(function(){ //está se dividindo em Threads
+            console.log("TERCEIRO");
+            resolve();
+        },5000);
+    });
+}
+
+executaPrimeiro();
+executaSegundo();
+executaTerceiro();
