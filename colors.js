@@ -1,8 +1,8 @@
 function continua(){
     console.log("Continuando loop...");
     alteraCor("violet")
-        .then(()=>alteraCor("orange"))
         .then(()=>alteraCor("blue"))
+        .then(()=>alteraCor("orange"))
 }
 
 function alteraCor(cor){
@@ -23,4 +23,8 @@ alteraCor('red')
     .then(()=>alteraCor("indigo"))
     .then(()=>alteraCor("black"))
     .then(()=>alteraCor("pink"))
-    .then(()=>alteraCor("blue"));
+    .then(()=>alteraCor("blue"))
+    .catch(function(err){
+        console.log("ERRO: "+err);
+        continua();
+    })
