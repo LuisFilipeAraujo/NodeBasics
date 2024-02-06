@@ -7,6 +7,11 @@ function continua(){
 
 function alteraCor(cor){
     return new Promise(function(resolve, reject){
+        if(cor==='yellow'){
+            reject("A cor é amarela");
+            return;
+        }
+
         setTimeout(function(){
             document.body.style.backgroundColor = cor;
             resolve();
@@ -24,7 +29,7 @@ alteraCor('red')
     .then(()=>alteraCor("black"))
     .then(()=>alteraCor("pink"))
     .then(()=>alteraCor("blue"))
-    .catch(function(err){
+    .catch(function(err){ //catch is just a method from default class Promise
         console.log("ERRO: "+err);
         continua();
     })
