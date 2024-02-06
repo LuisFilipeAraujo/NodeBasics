@@ -1,3 +1,10 @@
+function continua(){
+    console.log("Continuando loop...");
+    alteraCor("violet")
+        .then(()=>alteraCor("orange"))
+        .then(()=>alteraCor("blue"))
+}
+
 function alteraCor(cor){
     return new Promise(function(resolve, reject){
         setTimeout(function(){
